@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Notes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="green">
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-head">
+        <h2>My Notes</h2>
+        <button class="icon-btn" id="closeMenu">✕</button>
+      </div>
+      <button class="menu-item" id="newNoteBtn">➕ Create New Note</button>
+      <button class="menu-item" id="themeToggle">🌙 Dark / Bright</button>
+      <button class="menu-item" id="exportBtn">📤 Export Notes</button>
+      <hr>
+      <p class="side-label">Theme Color</p>
+      <div class="color-row">
+        <button class="color green" data-theme-choice="green"></button>
+        <button class="color blue" data-theme-choice="blue"></button>
+        <button class="color red" data-theme-choice="red"></button>
+        <button class="color yellow" data-theme-choice="yellow"></button>
+      </div>
+      <hr>
+      <p class="side-label">Playlists</p>
+      <button class="menu-item" id="createPlaylistBtn">＋ Create Playlist</button>
+      <div id="sidebarPlaylists"></div>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <main>
+      <header>
+        <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+        <h1>Notes</h1>
+        <button class="primary-btn" id="headerNewNote">＋ New</button>
+      </header>
+
+      <section class="search-section">
+        <input id="searchInput" type="search" placeholder="🔎 Search notes by title, tags or text...">
+      </section>
+
+      <section class="playlists-section">
+        <div class="section-title">
+          <h2>My Playlists</h2>
+          <button class="small-btn" id="createPlaylistBtn2">＋ Create</button>
+        </div>
+        <div id="playlists" class="playlist-list"></div>
+      </section>
+
+      <section class="notes-section">
+        <div class="section-title">
+          <h2>Notes</h2>
+          <span id="noteCount"></span>
+        </div>
+        <div id="notesList" class="notes-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="noteModal">
+    <div class="modal-box note-editor">
+      <div class="modal-top">
+        <h2 id="editorHeading">Create Note</h2>
+        <button class="icon-btn closeModal">✕</button>
+      </div>
+      <div class="editor-actions">
+        <button id="favoriteBtn">☆ Favorite</button>
+        <button id="pinBtn">📌 Pin</button>
+        <div class="dropdown">
+          <button id="playlistMenuBtn">＋ Add to Playlist ▾</button>
+          <div id="playlistDropdown" class="dropdown-content"></div>
+        </div>
+      </div>
+      <input id="noteTitle" class="editor-title" placeholder="Note title...">
+      <input id="noteTags" class="editor-tags" placeholder="Tags (example: study, important)">
+      <textarea id="noteContent" placeholder="Write your note here..."></textarea>
+      <div class="editor-bottom">
+        <span id="saveStatus"></span>
+        <button class="primary-btn" id="saveNoteBtn">Save Note</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="playlistModal">
+    <div class="modal-box small-modal">
+      <div class="modal-top">
+        <h2>Create Playlist</h2>
+        <button class="icon-btn closePlaylistModal">✕</button>
+      </div>
+      <input id="playlistName" placeholder="Playlist name...">
+      <div id="playlistNoteSelector" class="note-selector"></div>
+      <button class="primary-btn full" id="savePlaylistBtn">Create Playlist</button>
+    </div>
+  </div>
+
+  <div class="modal" id="playlistViewModal">
+    <div class="modal-box">
+      <div class="modal-top">
+        <h2 id="playlistViewTitle"></h2>
+        <button class="icon-btn closePlaylistView">✕</button>
+      </div>
+      <div id="playlistViewNotes" class="notes-list"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
